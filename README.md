@@ -2,7 +2,7 @@
 
 Here, a deep learning model for solar wind speed for the next 3 days at near the Earth is introduced.
 
-DOI: 10.3847/1538-4365/ace59a
+DOI: 10.3847/1538-4365/ace59a </br>
 
 CITATION: Jihyeon Son et al 2023 ApJS 267 45
 
