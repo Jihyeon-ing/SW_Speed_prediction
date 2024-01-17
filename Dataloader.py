@@ -27,14 +27,14 @@ class Dataset:
     img_files1 = sorted(glob.glob(self.img_path1+f'/png{i}/*.png'))
     img_files2 = sorted(glob.glob(self.img_path2+f'/png{i}/*.png'))
 		
-  	# sw input
-  	sw_x = []          # a list for the input sw speeds
-  	input_dates = []   # a list for input time
-  	
-  	for j in ragne(len(sw_speed)-(self.input_seq_sw+self.output_seq)+1):
-  		sw_x.append(sw_speed[j:j+self.input_seq_sw])
-  		input_dates.append(date[j:j+self.input_seq_sw])
-  	
+    # sw input
+    sw_x = []          # a list for the input sw speeds
+    input_dates = []   # a list for input time
+    
+    for j in ragne(len(sw_speed)-(self.input_seq_sw+self.output_seq)+1):
+      sw_x.append(sw_speed[j:j+self.input_seq_sw])
+      input_dates.append(date[j:j+self.input_seq_sw])
+
     # img input
     img_x = []         
     # a list for input solar images (save only file name
@@ -119,6 +119,7 @@ def data(self):
 			t_target.extend(e)
 
 	assert len(sw_x) == len(y) == len(img_x)
+  return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
 
 	return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
 
