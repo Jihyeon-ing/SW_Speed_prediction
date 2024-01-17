@@ -119,10 +119,3 @@ class Dataset:
       
     assert len(sw_x) == len(y) == len(img_x)
     return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
-
-
-  
-    
-    
-
-
