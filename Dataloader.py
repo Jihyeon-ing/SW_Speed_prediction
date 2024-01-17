@@ -31,9 +31,9 @@ class Dataset:
         sw_x = []          # a list for the input sw speeds
         input_dates = []   # a list for input time
         
-        for j in ragne(len(sw_speed)-(self.input_seq_sw+self.output_seq)+1):
-          sw_x.append(sw_speed[j:j+self.input_seq_sw])
-          input_dates.append(date[j:j+self.input_seq_sw])
+		for j in ragne(len(sw_speed)-(self.input_seq_sw+self.output_seq)+1):
+			sw_x.append(sw_speed[j:j+self.input_seq_sw])
+			input_dates.append(date[j:j+self.input_seq_sw])
         
         # img input
         img_x = []         
@@ -59,66 +59,66 @@ class Dataset:
         
         return sw_x, y, img_x, input_dates, target_dates
 
-def divide_dataset(self, i):
-	sw_x, y, img_x, input_dates, target_dates = self.get_dataset(i)
-
-	inputs = []
-	target = []
-	img = []
-	t_input = []
-	t_target = []
-	
-	if self.mode == 'train':
-		for j in range(len(sw_x)):
+	def divide_dataset(self, i):
+		sw_x, y, img_x, input_dates, target_dates = self.get_dataset(i)
+		
+		inputs = []
+		target = []
+		img = []
+		t_input = []
+		t_target = []
+		
+		if self.mode == 'train':
+			for j in range(len(sw_x)):
 				month1 = target_dates[j][-1][5:7]
 				month2 = target_dates[j][0][5:7]
-				if int(month1) in range(1, 9) and int(month2) in range(1, 9):
-						inputs.append(sw_x[j])
-						target.append(y[j])
-						img.append(img_x[j])
-						t_input.append(input_dates[j])
-						t_target.append(target_dates[j])
-
-	if self.mode == 'val':
+			if int(month1) in range(1, 9) and int(month2) in range(1, 9):
+				inputs.append(sw_x[j])
+				target.append(y[j])
+				img.append(img_x[j])
+				t_input.append(input_dates[j])
+				t_target.append(target_dates[j])
+		
+		if self.mode == 'val':
 			for j in range(len(sw_x)):
-					month1 = target_dates[j][-1][5:7]
-					month2 = target_dates[j][0][5:7]
-					if int(month1) == 9 and int(month2) == 9:
-							inputs.append(sw_x[j])
-							target.append(y[j])
-							img.append(img_x[j])
-							t_input.append(input_dates[j])
-							t_target.append(target_dates[j])
-
-	if self.mode == 'test':
+				month1 = target_dates[j][-1][5:7]
+				month2 = target_dates[j][0][5:7]
+			if int(month1) == 9 and int(month2) == 9:
+				inputs.append(sw_x[j])
+				target.append(y[j])
+				img.append(img_x[j])
+				t_input.append(input_dates[j])
+				t_target.append(target_dates[j])
+		
+		if self.mode == 'test':
 			for j in range(len(sw_x)):
-					month1 = target_dates[j][-1][5:7]
-					month2 = target_dates[j][0][5:7]
-					if int(month1) in range(10, 13) and int(month2) in range(10, 13):
-							inputs.append(sw_x[j])
-							target.append(y[j])
-							img.append(img_x[j])
-							t_input.append(input_dates[j])
-							t_target.append(target_dates[j])
-
-	return inputs, target, img, t_input, t_target
+				month1 = target_dates[j][-1][5:7]
+				month2 = target_dates[j][0][5:7]
+			if int(month1) in range(10, 13) and int(month2) in range(10, 13):
+				inputs.append(sw_x[j])
+				target.append(y[j])
+				img.append(img_x[j])
+				t_input.append(input_dates[j])
+				t_target.append(target_dates[j])
+		
+		return inputs, target, img, t_input, t_target
 		    
-  def data(self):
-  	sw_x = []
-  	y = []
-  	img_x = []
-  	t_input = []
-  	t_target = []
-  
-  	for i in range(1, 7):
-  			a, b, c, d, e = self.divide_dataset(i)
-  			sw_x.extend(a)
-  			y.extend(b)
-  			img_x.extend(c)
-  			t_input.extend(d)
-  			t_target.extend(e)
-  
-  	assert len(sw_x) == len(y) == len(img_x)
-    return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
+	def data(self):
+		sw_x = []
+		y = []
+		img_x = []
+		t_input = []
+		t_target = []
+		
+		for i in range(1, 7):
+			a, b, c, d, e = self.divide_dataset(i)
+			sw_x.extend(a)
+			y.extend(b)
+			img_x.extend(c)
+			t_input.extend(d)
+			t_target.extend(e)
+		
+		assert len(sw_x) == len(y) == len(img_x)
+		return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
 
 		
