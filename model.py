@@ -4,7 +4,7 @@ from tensorflow.keras.layers import *
 from tensorflow.keras.optimizers import *
 from tensorflow.keras.models import *
 
-class Model:
+class SWSpeedModel:
   def __init__(self, img_size=64, input_seq=10, n_ch=96):
     self.img_size = img_size
     self.input_seq = input_seq
