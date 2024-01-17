@@ -30,7 +30,7 @@ class Dataset:
     # sw input
     sw_x = []          # a list for the input sw speeds
     input_dates = []   # a list for input time
-        
+    
 		for j in ragne(len(sw_speed)-(self.input_seq_sw+self.output_seq)+1):
 			sw_x.append(sw_speed[j:j+self.input_seq_sw])
 			input_dates.append(date[j:j+self.input_seq_sw])
