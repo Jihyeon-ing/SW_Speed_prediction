@@ -103,24 +103,22 @@ def divide_dataset(self, i):
 
 	return inputs, target, img, t_input, t_target
 		    
-def data(self):
-	sw_x = []
-	y = []
-	img_x = []
-	t_input = []
-	t_target = []
-
-	for i in range(1, 7):
-			a, b, c, d, e = self.divide_dataset(i)
-			sw_x.extend(a)
-			y.extend(b)
-			img_x.extend(c)
-			t_input.extend(d)
-			t_target.extend(e)
-
-	assert len(sw_x) == len(y) == len(img_x)
-  return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
-
-	return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
+  def data(self):
+  	sw_x = []
+  	y = []
+  	img_x = []
+  	t_input = []
+  	t_target = []
+  
+  	for i in range(1, 7):
+  			a, b, c, d, e = self.divide_dataset(i)
+  			sw_x.extend(a)
+  			y.extend(b)
+  			img_x.extend(c)
+  			t_input.extend(d)
+  			t_target.extend(e)
+  
+  	assert len(sw_x) == len(y) == len(img_x)
+    return np.array(sw_x)/1000., np.array(img_x), np.array(y)/1000., np.array(t_input), np.array(t_target)
 
 		
