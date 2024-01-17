@@ -73,10 +73,10 @@ class Dataset:
         month2 = target_dates[j][0][5:7]
       if int(month1) in range(1, 9) and int(month2) in range(1, 9):
         inputs.append(sw_x[j])
-				target.append(y[j])
-				img.append(img_x[j])
-				t_input.append(input_dates[j])
-				t_target.append(target_dates[j])
+        target.append(y[j])
+        img.append(img_x[j])
+        t_input.append(input_dates[j])
+        t_target.append(target_dates[j])
     
     if self.mode == 'val':
       for j in range(len(sw_x)):
@@ -84,10 +84,10 @@ class Dataset:
         month2 = target_dates[j][0][5:7]
       if int(month1) == 9 and int(month2) == 9:
         inputs.append(sw_x[j])
-				target.append(y[j])
-				img.append(img_x[j])
-				t_input.append(input_dates[j])
-				t_target.append(target_dates[j])
+        target.append(y[j])
+        img.append(img_x[j])
+        t_input.append(input_dates[j])
+        t_target.append(target_dates[j])
 
     if self.mode == 'test':
       for j in range(len(sw_x)):
@@ -95,10 +95,10 @@ class Dataset:
         month2 = target_dates[j][0][5:7]
       if int(month1) in range(10, 13) and int(month2) in range(10, 13):
         inputs.append(sw_x[j])
-				target.append(y[j])
-				img.append(img_x[j])
-				t_input.append(input_dates[j])
-				t_target.append(target_dates[j])
+        target.append(y[j])
+        img.append(img_x[j])
+        t_input.append(input_dates[j])
+        t_target.append(target_dates[j])
     
     return inputs, target, img, t_input, t_target
     
