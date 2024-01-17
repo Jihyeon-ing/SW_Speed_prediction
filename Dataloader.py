@@ -62,10 +62,10 @@ class Dataset:
   def divide_dataset(self, i):
     sw_x, y, img_x, input_dates, target_dates = self.get_dataset(i)
     inputs = []
-		target = []
-		img = []
-		t_input = []
-		t_target = []
+    target = []
+    img = []
+    t_input = []
+    t_target = []
     
     if self.mode == 'train':
       for j in range(len(sw_x)):
