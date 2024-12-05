@@ -30,7 +30,7 @@ class SWSpeedModel:
     img_inputs = Input(shape=(self.input_seq, self.img_size, self.img_size, 2))
     img_x = Conv3D(self.n_ch, kernel_size=(1,7,7), padding='same', activation='relu')(img_inputs)
     img_x = MaxPooling3D(pool_size=(1, 3,3), strides=(1,2,2), padding='same')(img_x)
-    for _ in range(4):
+    for _ in range(3):
         img_x = inception(img_x, self.n_ch)
         img_x = MaxPooling3D(pool_size=(1,3,3), strides=(1,2,2), padding='same')(img_x)
     
